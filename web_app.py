@@ -6,17 +6,17 @@ from streamlit_folium import folium_static
 import folium
 
 # Importando valores utilizados nos mapas e gráficos
-df = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/base_dados.geojson')
+df = gpd.read_file('base_dados.geojson')
 valores = pd.DataFrame(df['BAIRRO_CIDADAO'].value_counts())
 valores = valores.reset_index()
 valores.columns = ['bairros', 'counts']
-bairros = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/bairros.geojson')
+bairros = gpd.read_file('bairros.geojson')
 
 # Menu lateral
 st.sidebar.title('Páginas')
 option = st.sidebar.selectbox('Selecione a opção desejada', ['Início', 'Estudo de caso', 'Mapas Gerais', 'Mapas '
                                                                                                          'Temáticos'])
-dados = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/bairros.geojson')
+dados = gpd.read_file('bairros.geojson')
 style = {'fillColor': '#0000FF',
          'color': '#556B2F'}
 layer_bairros = folium.GeoJson(
@@ -76,7 +76,7 @@ if option == 'Mapas Gerais':
         st.subheader('Estudo de ocupações irregulares em Curitiba')
         style = {'fillColor': '#FF0000',
                  'color': '#660000'}
-        oc_irr = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/oc_irr.geojson')
+        oc_irr = gpd.read_file('oc_irr.geojson')
         m = folium.Map(location=[-25.5, -49.3],
                        tiles='OpenStreetMap',
                        zoom_start=10
@@ -95,7 +95,7 @@ if option == 'Mapas Gerais':
         st.write('**Localização das Escolas Municipais de Curitiba**')
         esc_munic = st.checkbox('Exibir mapa de escolas municipais')
         if esc_munic == 1:
-            escola_munic = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/escola_munic.geojson')
+            escola_munic = gpd.read_file('escola_munic.geojson')
             m = folium.Map(location=[-25.5, -49.3],
                            tiles='OpenStreetMap',
                            zoom_start=14
@@ -112,7 +112,7 @@ if option == 'Mapas Gerais':
         st.write('**Localização dos Hospitais de Curitiba**')
         esc_hospitais = st.checkbox('Exibir mapa de hospitais')
         if esc_hospitais == 1:
-            hospitais = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/hospitais.geojson')
+            hospitais = gpd.read_file('hospitais.geojson')
             m = folium.Map(location=[-25.5, -49.3],
                            tiles='OpenStreetMap',
                            zoom_start=14
@@ -129,7 +129,7 @@ if option == 'Mapas Gerais':
         st.write('**Localização e abrangência das Unidades de Saúde de Curitiba**')
         esc_unitsaude = st.checkbox('Exibir mapa de Unidades de Saúde')
         if esc_unitsaude == 1:
-            unidade_saude = gpd.read_file('C:/Users/USUARIO/Documents/DAG/Trabalhofinal/unidade_saude.geojson')
+            unidade_saude = gpd.read_file('unidade_saude.geojson')
             m = folium.Map(location=[-25.5, -49.3], tiles='OpenStreetMap', zoom_start=12)
             folium.GeoJson(unidade_saude, name='Unidade de Saúde', tooltip=folium.GeoJsonTooltip(fields=['NOME_COMPL', 'BAIRRO'])).add_to(m)
             layer_bairros.add_to(m)
