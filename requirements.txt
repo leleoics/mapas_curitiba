@@ -25,7 +25,6 @@ entrypoints==0.3
 enum-compat==0.0.3
 Fiona==1.8.13.post1
 folium==0.11.0
-GDAL==3.0.2
 geopandas==0.8.1
 idna==2.10
 ipykernel==5.3.4
