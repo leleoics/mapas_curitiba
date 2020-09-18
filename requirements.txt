@@ -2,7 +2,6 @@ altair==4.1.0
 argon2-cffi==20.1.0
 astor==0.8.1
 async-generator==1.10
-attrs @ file:///tmp/build/80754af9/attrs_1600298409949/work
 backcall==0.2.0
 base58==2.0.1
 bleach==3.2.0
@@ -27,7 +26,7 @@ enum-compat==0.0.3
 Fiona==1.8.13.post1
 folium==0.11.0
 GDAL==3.0.2
-geopandas @ file:///tmp/build/80754af9/geopandas_1594937497867/work
+geopandas==0.8.1
 idna==2.10
 ipykernel==5.3.4
 ipython==7.18.1
